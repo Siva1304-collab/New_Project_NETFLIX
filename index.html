@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>NexusFlix | Premium Streaming Universe</title>
+    <title>CinemaFlow | Next-Gen Streaming Hub</title>
     
-    <!-- Font Awesome 6 (Free) -->
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts: Plus Jakarta Sans for modern look -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Space Grotesk + Inter mix -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- AOS Library -->
+    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Swiper JS (for carousel effect) -->
+    <!-- Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <style>
@@ -25,31 +25,23 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0f0f0f;
+            font-family: 'Inter', sans-serif;
+            background: #03070e;
             color: #ffffff;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #e50914;
-            border-radius: 10px;
-        }
+        /* custom scroll */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #0a0f1a; }
+        ::-webkit-scrollbar-thumb { background: #e50914; border-radius: 10px; }
 
-        /* Modern Glassmorphism Navbar */
+        /* glass nav */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.2rem 5%;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -58,63 +50,62 @@
             background: transparent;
         }
         .navbar.scrolled {
-            background: rgba(15, 15, 15, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(229, 9, 20, 0.2);
-            padding: 0.9rem 5%;
+            background: rgba(3, 7, 14, 0.92);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(229, 9, 20, 0.3);
+            padding: 0.7rem 5%;
         }
         .logo {
+            font-family: 'Space Grotesk', monospace;
             font-size: 1.9rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #e50914, #ff4d4d);
+            background: linear-gradient(125deg, #e50914, #ff6a6a, #ffb347);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.02em;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: 0.2s;
         }
-        .logo:hover { transform: scale(1.02); }
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.2rem;
             list-style: none;
         }
         .nav-links a {
-            color: #f0f0f0;
+            color: #f1f1f1;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: 0.2s;
             position: relative;
-            padding: 0.25rem 0;
+            padding: 0.2rem 0;
         }
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -4px;
             left: 0;
             width: 0%;
             height: 2.5px;
-            background: linear-gradient(90deg, #e50914, #ff6b6b);
+            background: linear-gradient(90deg, #e50914, #ff7b2c);
             transition: width 0.3s ease;
+            border-radius: 4px;
         }
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
         .nav-links a.active {
-            color: #e50914;
-            background: linear-gradient(135deg, #e50914, #ff8c8c);
+            background: linear-gradient(120deg, #e50914, #ff9f4a);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            font-weight: 700;
         }
 
-        /* Hero Section - Cinematic Overlay */
+        /* Hero section — cinematic nebula */
         .hero {
             height: 100vh;
-            background: radial-gradient(circle at 20% 50%, #0a0a2a, #000000);
+            background: radial-gradient(ellipse at 30% 40%, #0b1120, #020408);
             position: relative;
             display: flex;
             align-items: center;
@@ -126,511 +117,491 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format') center/cover no-repeat;
-            opacity: 0.3;
-            mix-blend-mode: overlay;
-            animation: slowZoom 20s infinite alternate;
+            background: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=2025&auto=format') center/cover no-repeat;
+            opacity: 0.2;
+            mix-blend-mode: soft-light;
+            animation: slowDrift 25s infinite alternate;
         }
-        @keyframes slowZoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
+        @keyframes slowDrift {
+            0% { transform: scale(1) translateX(0); }
+            100% { transform: scale(1.08) translateX(-2%); }
         }
         .hero-content {
-            z-index: 2;
-            max-width: 900px;
+            z-index: 3;
+            max-width: 880px;
             padding: 1rem;
         }
         .hero h1 {
-            font-size: 4.5rem;
+            font-family: 'Space Grotesk', monospace;
+            font-size: 4.8rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #ffffff, #e50914, #ffb347);
-            background-size: 200% auto;
+            background: linear-gradient(135deg, #ffffff, #e50914, #f9a826);
+            background-size: 300% auto;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            animation: shimmer 6s linear infinite;
+            animation: gradientFlow 6s ease infinite;
             margin-bottom: 1.2rem;
         }
-        @keyframes shimmer {
+        @keyframes gradientFlow {
             0% { background-position: 0% 50%; }
-            100% { background-position: 200% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 400;
+            letter-spacing: 0.3px;
             margin-bottom: 2rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
         }
         .cta-button {
-            padding: 14px 38px;
-            font-size: 1.1rem;
+            padding: 14px 42px;
+            font-size: 1.05rem;
             font-weight: 700;
-            background: linear-gradient(45deg, #e50914, #ff3b3b);
+            background: linear-gradient(95deg, #e50914, #ff3b4a);
             border: none;
-            border-radius: 40px;
+            border-radius: 50px;
             color: white;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px -5px rgba(229,9,20,0.4);
+            transition: all 0.3s;
+            box-shadow: 0 12px 25px -8px rgba(229,9,20,0.5);
         }
         .cta-button:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 20px 30px -8px rgba(229,9,20,0.6);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 22px 32px -12px #e50914;
         }
 
-        /* Content sections */
+        /* sections */
         .content-section {
             display: none;
-            padding: 100px 5% 60px;
-            background: #0f0f0f;
+            padding: 110px 5% 70px;
+            background: #03070e;
         }
         .content-section.active {
             display: block;
-            animation: fadeSlideUp 0.6s ease-out;
+            animation: riseUp 0.55s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
-        @keyframes fadeSlideUp {
-            from { opacity: 0; transform: translateY(30px); }
+        @keyframes riseUp {
+            from { opacity: 0; transform: translateY(35px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .section-header {
             display: flex;
-            align-items: baseline;
             justify-content: space-between;
-            margin-bottom: 2rem;
+            align-items: flex-end;
             flex-wrap: wrap;
+            margin-bottom: 2rem;
+            border-left: 4px solid #e50914;
+            padding-left: 1.2rem;
         }
         .section-title {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
-            background: linear-gradient(120deg, #fff, #e0e0e0);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -0.5px;
-            position: relative;
-            display: inline-block;
+            font-family: 'Space Grotesk', monospace;
+            letter-spacing: -0.3px;
         }
-        .section-title i { margin-right: 12px; color: #e50914; background: none; -webkit-background-clip: unset; }
+        .section-title i { color: #e50914; margin-right: 10px; }
 
-        /* Swiper carousel for movies */
-        .swiper {
-            width: 100%;
-            padding: 20px 0 40px;
-        }
+        /* movie cards (elegant) */
         .movie-card {
-            background: #141414;
-            border-radius: 20px;
+            background: #0f141f;
+            border-radius: 24px;
             overflow: hidden;
             transition: all 0.4s;
             cursor: pointer;
-            position: relative;
-            box-shadow: 0 20px 35px -15px rgba(0,0,0,0.7);
-            backdrop-filter: blur(2px);
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow: 0 15px 30px -12px rgba(0,0,0,0.6);
         }
         .movie-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 30px 40px -12px rgba(229,9,20,0.3);
-            border-color: rgba(229,9,20,0.4);
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(229,9,20,0.5);
+            box-shadow: 0 28px 35px -12px rgba(229,9,20,0.25);
         }
         .movie-poster {
             width: 100%;
-            height: 380px;
+            height: 370px;
             object-fit: cover;
             transition: transform 0.5s;
         }
-        .movie-card:hover .movie-poster {
-            transform: scale(1.05);
-        }
+        .movie-card:hover .movie-poster { transform: scale(1.03); }
         .movie-info {
-            padding: 1rem;
-            background: linear-gradient(to top, #0a0a0a, #141414);
+            padding: 1rem 1rem 1.2rem;
+            background: linear-gradient(to top, #0b101a, #0f141f);
         }
         .movie-title {
             font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
+            font-size: 1rem;
+            margin-bottom: 4px;
         }
         .movie-meta {
             display: flex;
             justify-content: space-between;
-            font-size: 0.8rem;
-            color: #aaa;
+            font-size: 0.75rem;
+            color: #b0b7c9;
         }
-        .rating-badge {
+        .rating-chip {
             position: absolute;
             top: 12px;
             right: 12px;
             background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(8px);
-            padding: 5px 10px;
-            border-radius: 30px;
-            font-size: 0.8rem;
+            backdrop-filter: blur(6px);
+            padding: 4px 10px;
+            border-radius: 40px;
+            font-size: 0.75rem;
             font-weight: bold;
-            color: #ffd966;
+            color: #ffcd4a;
             z-index: 2;
-            border-left: 2px solid #e50914;
+            border-right: 2px solid #e50914;
         }
-        .watch-btn-sm {
+        .btn-mini {
             margin-top: 10px;
-            background: #e50914;
+            background: rgba(229,9,20,0.9);
             border: none;
             padding: 6px 12px;
-            border-radius: 30px;
+            border-radius: 40px;
             color: white;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             cursor: pointer;
-            transition: 0.2s;
             width: 100%;
+            transition: 0.2s;
         }
-        .watch-btn-sm:hover { background: #ff2e2e; }
+        .btn-mini:hover { background: #ff2f3f; }
 
-        /* Featured Banner */
-        .featured-banner {
-            background: linear-gradient(115deg, #1a1a2e, #0f0f1f);
-            border-radius: 32px;
-            margin-bottom: 3rem;
+        /* featured hero card */
+        .featured-hero {
+            background: linear-gradient(125deg, #101624, #03050b);
+            border-radius: 36px;
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
             padding: 2rem;
+            margin-bottom: 3rem;
             border: 1px solid rgba(229,9,20,0.3);
-            transition: 0.3s;
         }
         .featured-img {
-            flex: 0 0 220px;
-            border-radius: 24px;
+            width: 230px;
+            height: 310px;
             object-fit: cover;
-            width: 220px;
-            height: 300px;
+            border-radius: 28px;
             box-shadow: 0 20px 30px -5px black;
         }
-        .featured-details {
+        .featured-body {
             flex: 1;
         }
-        .featured-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-        .featured-tag {
+        .badge-hot {
             background: #e50914;
             display: inline-block;
-            padding: 4px 16px;
+            padding: 5px 18px;
             border-radius: 40px;
             font-size: 0.8rem;
-            margin-bottom: 1rem;
+            font-weight: bold;
         }
-        .btn-watch {
+        .watch-primary {
             background: white;
             color: black;
             border: none;
-            padding: 10px 24px;
+            padding: 10px 28px;
             border-radius: 40px;
-            font-weight: bold;
+            font-weight: 700;
             margin-top: 1rem;
             cursor: pointer;
             transition: 0.2s;
         }
-        .btn-watch:hover { background: #e50914; color: white; transform: scale(1.02); }
+        .watch-primary:hover { background: #e50914; color: white; transform: scale(1.02); }
 
-        /* Premium features grid */
-        .features-grid {
+        /* feature grid premium */
+        .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-top: 2.5rem;
-        }
-        .feature-card {
-            background: rgba(20,20,30,0.7);
-            backdrop-filter: blur(6px);
-            border-radius: 28px;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            transition: all 0.3s;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-        .feature-card:hover {
-            transform: translateY(-10px);
-            background: #1a1a24;
-            border-color: #e50914;
-        }
-        .feature-card i {
-            font-size: 3rem;
-            color: #e50914;
-            margin-bottom: 1rem;
-        }
-        .feature-card h3 { font-size: 1.5rem; margin-bottom: 0.8rem; }
-
-        /* Footer */
-        .footer {
-            background: #080808;
-            padding: 3rem 5%;
-            text-align: center;
-            border-top: 1px solid #222;
             margin-top: 2rem;
         }
-        .social-icons {
+        .feature-item {
+            background: rgba(16, 22, 36, 0.7);
+            backdrop-filter: blur(5px);
+            border-radius: 32px;
+            padding: 2rem 1.2rem;
+            text-align: center;
+            transition: 0.25s;
+            border: 1px solid #1e2538;
+        }
+        .feature-item:hover {
+            transform: translateY(-8px);
+            background: #111927;
+            border-color: #e50914;
+        }
+        .feature-item i {
+            font-size: 2.8rem;
+            background: linear-gradient(145deg, #e50914, #ff7a45);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+        .footer {
+            background: #020408;
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid #151e2c;
+        }
+        .social-links {
             display: flex;
             justify-content: center;
             gap: 2rem;
             margin-bottom: 1.5rem;
         }
-        .social-icons a {
-            color: #aaa;
+        .social-links a {
+            color: #9aa4bf;
             font-size: 1.8rem;
             transition: 0.2s;
         }
-        .social-icons a:hover { color: #e50914; transform: translateY(-4px); }
+        .social-links a:hover { color: #e50914; transform: translateY(-3px); }
 
-        /* Loader */
+        /* loader premium */
         .loader {
             position: fixed;
             inset: 0;
-            background: #000;
+            background: #03070e;
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 12px;
             z-index: 10000;
-            animation: fadeOutLoader 0.8s ease 1.5s forwards;
+            animation: vanishLoader 0.7s ease 1.8s forwards;
         }
-        .loader div {
-            width: 20px;
-            height: 20px;
-            margin: 0 8px;
+        .loader span {
+            width: 22px;
+            height: 22px;
             background: #e50914;
             border-radius: 50%;
-            animation: loaderBounce 0.6s infinite alternate;
+            animation: pulseLoader 0.7s infinite alternate;
         }
-        .loader div:nth-child(2) { animation-delay: 0.2s; background: #ff4d4d; }
-        .loader div:nth-child(3) { animation-delay: 0.4s; background: #ff8c8c; }
-        @keyframes loaderBounce {
-            to { transform: translateY(-30px); opacity: 0.7; }
+        .loader span:nth-child(2) { animation-delay: 0.2s; background: #ff5e5e; }
+        .loader span:nth-child(3) { animation-delay: 0.4s; background: #ff9f6e; }
+        @keyframes pulseLoader {
+            to { transform: translateY(-28px); opacity: 0.6; }
         }
-        @keyframes fadeOutLoader {
+        @keyframes vanishLoader {
             to { opacity: 0; visibility: hidden; }
         }
-        @media (max-width: 768px) {
+
+        @media (max-width: 780px) {
             .hero h1 { font-size: 2.2rem; }
             .navbar { padding: 1rem 5%; }
-            .nav-links { gap: 1rem; }
-            .content-section { padding: 90px 5% 40px; }
-            .featured-banner { flex-direction: column; align-items: center; text-align: center; }
-            .featured-img { width: 180px; height: 260px; }
+            .nav-links { gap: 1.2rem; }
+            .content-section { padding: 100px 5% 50px; }
+            .featured-hero { flex-direction: column; align-items: center; text-align: center; }
         }
     </style>
 </head>
 <body>
     <div class="loader">
-        <div></div>
-        <div></div>
-        <div></div>
+        <span></span><span></span><span></span>
     </div>
 
     <nav class="navbar" id="navbar">
-        <div class="logo" data-aos="fade-right"><i class="fa-solid fa-play"></i> NEXUSFLIX</div>
+        <div class="logo" data-aos="fade-right"><i class="fa-regular fa-clapperboard"></i> CINEMAFLOW</div>
         <ul class="nav-links">
-            <li><a class="nav-link active" data-section="home">🏠 Home</a></li>
-            <li><a class="nav-link" data-section="movies">🎬 Library</a></li>
-            <li><a class="nav-link" data-section="trending">⚡ Trending</a></li>
-            <li><a class="nav-link" data-section="features">✨ Perks</a></li>
+            <li><a class="nav-link active" data-section="home">⌂ Home</a></li>
+            <li><a class="nav-link" data-section="movies">🎞️ Explore</a></li>
+            <li><a class="nav-link" data-section="trending">⚡ Vortex</a></li>
+            <li><a class="nav-link" data-section="features">💎 Benefits</a></li>
         </ul>
     </nav>
 
-    <!-- Hero / Home Section -->
+    <!-- Hero (Home) -->
     <section class="hero" id="homeSection">
-        <div class="hero-content" data-aos="zoom-in-up">
-            <h1>Beyond Ordinary Streaming</h1>
-            <p>4K Ultra HD • Originals • Zero Ads • Watch Anywhere</p>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <h1>Cinema Without Limits</h1>
+            <p>Stream the world’s best movies, series & exclusives. 4K · HDR · Dolby Atmos</p>
             <button class="cta-button" onclick="document.querySelector('[data-section=\'movies\']').click()">
-                Explore Now <i class="fa-regular fa-circle-play"></i>
+                Begin Journey <i class="fa-regular fa-circle-right"></i>
             </button>
         </div>
     </section>
 
-    <!-- Movies Section (Carousel) -->
+    <!-- Movies Section (Swiper) -->
     <div class="content-section" id="moviesSection">
         <div class="section-header">
-            <h2 class="section-title"><i class="fa-solid fa-film"></i> Cinematic Universe</h2>
-            <span style="color:#aaa;">Trending hits & classics</span>
+            <h2 class="section-title"><i class="fa-regular fa-compass"></i> Unlimited Discovery</h2>
+            <span style="color:#9aa9c1;">curated for you</span>
         </div>
-        <div class="swiper movieSwiper">
-            <div class="swiper-wrapper" id="moviesSwiperWrapper"></div>
+        <div class="swiper movieCarousel">
+            <div class="swiper-wrapper" id="movieSwiperContainer"></div>
             <div class="swiper-pagination"></div>
             <div class="swiper-button-next" style="color:#e50914;"></div>
             <div class="swiper-button-prev" style="color:#e50914;"></div>
         </div>
     </div>
 
-    <!-- Trending Section (Featured + Grid) -->
+    <!-- Trending Vortex -->
     <div class="content-section" id="trendingSection">
         <div class="section-header">
-            <h2 class="section-title"><i class="fa-solid fa-fire-flame-curved"></i> Global Top 10</h2>
-            <span>🔥 Most watched this week</span>
+            <h2 class="section-title"><i class="fa-solid fa-chart-line"></i> Trending Shockwave</h2>
+            <span>🔥 global pulse</span>
         </div>
-        <div id="featuredTrendingContainer"></div>
-        <h3 class="section-title" style="font-size:1.6rem; margin: 2rem 0 1rem;"><i class="fa-solid fa-chart-simple"></i> Also Trending</h3>
-        <div class="swiper trendingSwiper">
-            <div class="swiper-wrapper" id="trendingSwiperWrapper"></div>
+        <div id="trendingSpotlight"></div>
+        <h3 class="section-title" style="font-size:1.4rem; margin: 2rem 0 1rem;"><i class="fa-regular fa-star"></i> Must-watch now</h3>
+        <div class="swiper trendingCarousel">
+            <div class="swiper-wrapper" id="trendingWrapperCards"></div>
             <div class="swiper-pagination"></div>
         </div>
     </div>
 
-    <!-- Features Section -->
+    <!-- Benefits / Features -->
     <div class="content-section" id="featuresSection">
         <div class="section-header">
-            <h2 class="section-title"><i class="fa-solid fa-crown"></i> Premium Experience</h2>
-            <span>Ultimate entertainment ecosystem</span>
+            <h2 class="section-title"><i class="fa-regular fa-gem"></i> Elite Experience</h2>
+            <span>next‑gen streaming</span>
         </div>
-        <div class="features-grid">
-            <div class="feature-card" data-aos="fade-up"><i class="fa-solid fa-globe"></i><h3>Global Content</h3><p>80+ languages & award-winning originals</p></div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="100"><i class="fa-solid fa-download"></i><h3>Smart Downloads</h3><p>Offline mode, watch on flights</p></div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="200"><i class="fa-solid fa-tv"></i><h3>IMAX Enhanced</h3><p>Cinematic ratio + Dolby Atmos</p></div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="300"><i class="fa-solid fa-users"></i><h3>Family Share</h3><p>Up to 5 profiles + Kids mode</p></div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="400"><i class="fa-solid fa-chart-line"></i><h3>Smart Recommendations</h3><p>AI-powered custom feed</p></div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="500"><i class="fa-solid fa-headset"></i><h3>Priority Support</h3><p>24/7 live concierge</p></div>
+        <div class="feature-grid">
+            <div class="feature-item" data-aos="fade-up"><i class="fa-solid fa-microchip"></i><h3>Neural 4K Upscale</h3><p>AI-powered clarity for every frame</p></div>
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="80"><i class="fa-solid fa-ear-listen"></i><h3>Immersive Audio</h3><p>Dolby Vision + Atmos ready</p></div>
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="160"><i class="fa-solid fa-glasses"></i><h3>Director’s Cut</h3><p>Exclusive commentaries & extras</p></div>
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="240"><i class="fa-solid fa-wifi"></i><h3>SmartStream</h3><p>Adaptive bitrate · zero lag</p></div>
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="320"><i class="fa-solid fa-users-line"></i><h3>Watch Parties</h3><p>Synchronized reactions & chat</p></div>
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="400"><i class="fa-solid fa-crown"></i><h3>VIP Access</h3><p>Early screenings & events</p></div>
         </div>
     </div>
 
     <footer class="footer">
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-x-twitter"></i></a>
-            <a href="#"><i class="fab fa-tiktok"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+        <div class="social-links">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-discord"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
         </div>
-        <p>© 2025 NexusFlix — Where stories ignite. | Crafted with <i class="fas fa-heart" style="color:#e50914;"></i> for cinephiles</p>
-        <p style="font-size:0.75rem; margin-top:8px;">Streaming version 3.1 | Jenkins pipeline · Immersive UI</p>
+        <p>© 2025 CinemaFlow — where every frame tells a story. <i class="fa-solid fa-heart" style="color:#e50914;"></i> for film lovers</p>
+        <p style="font-size:0.7rem; opacity:0.6;">CI/CD pipeline v3.0 | Ultra responsive design</p>
     </footer>
 
-    <!-- scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <script>
-        AOS.init({ duration: 800, once: true, offset: 80 });
+        AOS.init({ duration: 700, once: true, offset: 50 });
         
-        // ---------- ENHANCED MOVIE DATABASE (Rich content) ----------
-        const movieLibrary = [
-            { id: 1, title: "Dune: Prophecy", year: "2024", rating: "9.1", genre: "Sci-Fi/Epic", image: "https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dnbOE6PY8Q8s8.jpg", description: "The messianic journey of Paul Atreides reaches new heights." },
-            { id: 2, title: "The Batman: Shadow", year: "2023", rating: "8.9", genre: "Action/Crime", image: "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg", description: "Gotham's darkest mystery unfolds." },
-            { id: 3, title: "Oppenheimer", year: "2023", rating: "8.8", genre: "Biography", image: "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg", description: "Father of the atomic bomb." },
-            { id: 4, title: "Spider-Verse: Beyond", year: "2024", rating: "8.7", genre: "Animation", image: "https://image.tmdb.org/t/p/w500/stmYfCUGd8Iy6kAMBr6AmWqx8Bq.jpg", description: "Visually stunning multiverse adventure." },
-            { id: 5, title: "John Wick: Chapter 5", year: "2025", rating: "8.5", genre: "Action", image: "https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg", description: "Baba Yaga returns with vengeance." },
-            { id: 6, title: "The Killer's Game", year: "2024", rating: "7.9", genre: "Thriller", image: "https://image.tmdb.org/t/p/w500/fZPSd91WGEkWd3WLrFwUlgI5XZg.jpg", description: "High-stakes assassin showdown." },
-            { id: 7, title: "Gladiator II", year: "2024", rating: "8.2", genre: "Epic", image: "https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgvimx.jpg", description: "Legacy of the arena continues." },
-            { id: 8, title: "Interstellar: 10th Anniv", year: "2024", rating: "9.0", genre: "Sci-Fi", image: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg", description: "Remastered IMAX edition." }
+        // ---- Ultra-rich media database (fresh content + visuals) ----
+        const globalMovies = [
+            { id: 1, title: "Dune: Awakening", year: "2025", rating: "9.2", genre: "Sci-Fi/Epic", image: "https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dnbOE6PY8Q8s8.jpg", desc: "The saga expands — war for Arrakis." },
+            { id: 2, title: "Blade Runner 2099", year: "2025", rating: "8.9", genre: "Cyberpunk", image: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg", desc: "Neo-noir future returns." },
+            { id: 3, title: "The Batman: Reign", year: "2024", rating: "8.8", genre: "Action", image: "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg", desc: "Darkness rises in Gotham." },
+            { id: 4, title: "Furiosa: Wasteland", year: "2024", rating: "8.5", genre: "Action", image: "https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg", desc: "Mad Max fury origins." },
+            { id: 5, title: "Interstellar Echo", year: "2024", rating: "8.7", genre: "Sci-Fi", image: "https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg", desc: "Time-bending mystery." },
+            { id: 6, title: "Gladiator: Bloodline", year: "2025", rating: "8.6", genre: "Epic", image: "https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgvimx.jpg", desc: "Legacy of the arena." },
+            { id: 7, title: "John Wick: Exodus", year: "2025", rating: "8.9", genre: "Thriller", image: "https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg", desc: "Final chapter unfolds." },
+            { id: 8, title: "Spider-Verse: Nexus", year: "2025", rating: "9.0", genre: "Animation", image: "https://image.tmdb.org/t/p/w500/stmYfCUGd8Iy6kAMBr6AmWqx8Bq.jpg", desc: "Multiverse chaos." }
         ];
 
-        const trendingMovies = [
-            { id: 101, title: "The Creator", year: "2023", rating: "8.6", genre: "Sci-Fi", image: "https://image.tmdb.org/t/p/w500/vB8o2Teoh64JX12GTe5Nskc6uFZ.jpg", description: "AI warfare reaches emotional depth." },
-            { id: 102, title: "Saltburn", year: "2023", rating: "7.7", genre: "Drama", image: "https://image.tmdb.org/t/p/w500/qjhahNErzU3NFdwEfC3wzD5fqCH.jpg", description: "Twisted aristocratic tale." },
-            { id: 103, title: "The Marvels", year: "2023", rating: "6.5", genre: "Superhero", image: "https://image.tmdb.org/t/p/w500/Ag3D9qXjhJZFUox4HZpCjW2fGs2.jpg", description: "Cosmic team-up adventure." },
-            { id: 104, title: "Killers of the Flower Moon", year: "2023", rating: "8.4", genre: "Crime", image: "https://image.tmdb.org/t/p/w500/dB6Krk2zeIhdj5OJrjsm0ZJwXrU.jpg", description: "Scorsese's epic masterpiece." }
+        const trendingNow = [
+            { id: 201, title: "Oppenheimer Legacy", year: "2024", rating: "8.9", genre: "Biography", image: "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg", desc: "Atomic drama extended cut." },
+            { id: 202, title: "Saltburn: Aftermath", year: "2024", rating: "7.8", genre: "Thriller", image: "https://image.tmdb.org/t/p/w500/qjhahNErzU3NFdwEfC3wzD5fqCH.jpg", desc: "Dark psychological ride." },
+            { id: 203, title: "The Killer's Game", year: "2024", rating: "7.9", genre: "Action", image: "https://image.tmdb.org/t/p/w500/fZPSd91WGEkWd3WLrFwUlgI5XZg.jpg", desc: "Assassin's high-stakes." },
+            { id: 204, title: "Civil War", year: "2024", rating: "7.5", genre: "Dystopian", image: "https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg", desc: "Journalists in fractured America." },
+            { id: 205, title: "The Fall Guy", year: "2024", rating: "7.6", genre: "Action/Comedy", image: "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg", desc: "Stuntman turned hero." }
         ];
 
-        // Helper: create movie card DOM for Swiper slides
-        function createMovieSlide(movie) {
-            const div = document.createElement('div');
-            div.className = 'swiper-slide';
-            div.innerHTML = `
-                <div class="movie-card">
-                    <div class="rating-badge">⭐ ${movie.rating}</div>
-                    <img class="movie-poster" src="${movie.image}" alt="${movie.title}" onerror="this.src='https://placehold.co/300x450/1a1a2e/e50914?text=${encodeURIComponent(movie.title)}'">
+        // Helper: create swiper slide card
+        function buildSlide(movie) {
+            const slideDiv = document.createElement('div');
+            slideDiv.className = 'swiper-slide';
+            slideDiv.innerHTML = `
+                <div class="movie-card" style="position:relative;">
+                    <div class="rating-chip">⭐ ${movie.rating}</div>
+                    <img class="movie-poster" src="${movie.image}" alt="${movie.title}" onerror="this.src='https://placehold.co/300x450/111927/e50914?text=${encodeURIComponent(movie.title)}'">
                     <div class="movie-info">
                         <div class="movie-title">${movie.title}</div>
                         <div class="movie-meta"><span>${movie.year}</span><span>${movie.genre}</span></div>
-                        <button class="watch-btn-sm"><i class="fa-regular fa-circle-play"></i> Play now</button>
+                        <button class="btn-mini"><i class="fa-regular fa-circle-play"></i> Stream now</button>
                     </div>
                 </div>
             `;
-            const cardDiv = div.querySelector('.movie-card');
-            cardDiv.addEventListener('click', (e) => {
+            const card = slideDiv.querySelector('.movie-card');
+            card.addEventListener('click', (e) => {
                 if(e.target.tagName !== 'BUTTON') {
-                    alert(`🎞️ ${movie.title} (${movie.year})\n⭐ ${movie.rating}/10\n📝 ${movie.description}`);
+                    alert(`🎬 ${movie.title} (${movie.year})\n⭐ Rating: ${movie.rating}/10\n📖 ${movie.desc}`);
                 }
             });
-            const btn = div.querySelector('.watch-btn-sm');
+            const btn = slideDiv.querySelector('.btn-mini');
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                alert(`🎬 Now streaming: ${movie.title}\nExperience in 4K HDR!`);
+                alert(`🎥 Now streaming: ${movie.title}\nUltra HD + immersive audio active.`);
             });
-            return div;
+            return slideDiv;
         }
 
-        // Populate main movies swiper
-        function initMovieSwiper() {
-            const wrapper = document.getElementById('moviesSwiperWrapper');
-            wrapper.innerHTML = '';
-            movieLibrary.forEach(m => wrapper.appendChild(createMovieSlide(m)));
-            new Swiper('.movieSwiper', {
+        // init main carousel
+        function initMainCarousel() {
+            const container = document.getElementById('movieSwiperContainer');
+            container.innerHTML = '';
+            globalMovies.forEach(m => container.appendChild(buildSlide(m)));
+            new Swiper('.movieCarousel', {
                 slidesPerView: 1.2,
-                spaceBetween: 20,
-                breakpoints: { 640: { slidesPerView: 2.2 }, 1024: { slidesPerView: 3.5 }, 1280: { slidesPerView: 4.2 } },
+                spaceBetween: 22,
                 pagination: { el: '.swiper-pagination', clickable: true },
                 navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-                autoplay: { delay: 4000, disableOnInteraction: false }
+                breakpoints: { 640: { slidesPerView: 2.2 }, 1024: { slidesPerView: 3.4 }, 1280: { slidesPerView: 4.2 } },
+                autoplay: { delay: 4200, disableOnInteraction: false }
             });
         }
 
-        // Trending: Featured + secondary swiper
-        function initTrending() {
-            const topTrend = trendingMovies[0];
-            const featuredContainer = document.getElementById('featuredTrendingContainer');
-            featuredContainer.innerHTML = `
-                <div class="featured-banner" data-aos="fade-right">
-                    <img class="featured-img" src="${topTrend.image}" alt="${topTrend.title}" onerror="this.src='https://placehold.co/220x300/111/e50914?text=Trending'">
-                    <div class="featured-details">
-                        <span class="featured-tag"><i class="fa-solid fa-fire"></i> #1 Globally</span>
-                        <div class="featured-title">${topTrend.title}</div>
-                        <p style="margin: 1rem 0;">${topTrend.description}</p>
-                        <div><strong>⭐ ${topTrend.rating}</strong> · ${topTrend.year} · ${topTrend.genre}</div>
-                        <button class="btn-watch" id="featuredWatchBtn"><i class="fa-regular fa-eye"></i> Watch Trailer</button>
+        // trending section with featured spotlight
+        function initTrendingUniverse() {
+            const topPick = trendingNow[0];
+            const spotlightDiv = document.getElementById('trendingSpotlight');
+            spotlightDiv.innerHTML = `
+                <div class="featured-hero" data-aos="fade-right">
+                    <img class="featured-img" src="${topPick.image}" alt="${topPick.title}" onerror="this.src='https://placehold.co/230x310/111/e50914?text=Top+Trend'">
+                    <div class="featured-body">
+                        <span class="badge-hot"><i class="fa-solid fa-bolt"></i> #1 TRENDING WORLDWIDE</span>
+                        <div style="font-size:2rem; font-weight:800; margin:0.8rem 0;">${topPick.title}</div>
+                        <p style="margin-bottom:0.5rem;">${topPick.desc}</p>
+                        <div style="display:flex; gap:1rem; flex-wrap:wrap;"><span>⭐ ${topPick.rating}/10</span><span>📅 ${topPick.year}</span><span>🎭 ${topPick.genre}</span></div>
+                        <button class="watch-primary" id="trendingHeroBtn"><i class="fa-regular fa-eye"></i> Watch Exclusive Clip</button>
                     </div>
                 </div>
             `;
-            document.getElementById('featuredWatchBtn')?.addEventListener('click', () => alert(`🔥 Now showing: ${topTrend.title} — Critical acclaim worldwide!`));
+            document.getElementById('trendingHeroBtn')?.addEventListener('click', () => alert(`🔥 ${topPick.title} — critics call it “a masterpiece”. Stream now.`));
 
-            const trendingWrapper = document.getElementById('trendingSwiperWrapper');
+            const trendingWrapper = document.getElementById('trendingWrapperCards');
             trendingWrapper.innerHTML = '';
-            // combine trendingMovies (except first) + top movies from library for variety
-            const restTrend = [...trendingMovies.slice(1), ...movieLibrary.slice(0,4)];
-            restTrend.forEach(m => trendingWrapper.appendChild(createMovieSlide(m)));
-            
-            new Swiper('.trendingSwiper', {
+            const restTrend = [...trendingNow.slice(1), ...globalMovies.slice(2,6)];
+            restTrend.forEach(m => trendingWrapper.appendChild(buildSlide(m)));
+            new Swiper('.trendingCarousel', {
                 slidesPerView: 1.2,
                 spaceBetween: 20,
-                breakpoints: { 640: { slidesPerView: 2.2 }, 1024: { slidesPerView: 3.5 } },
                 pagination: { el: '.swiper-pagination', clickable: true },
-                autoplay: { delay: 3500, disableOnInteraction: true }
+                breakpoints: { 640: { slidesPerView: 2.2 }, 1024: { slidesPerView: 3.5 } },
+                autoplay: { delay: 3800, disableOnInteraction: true }
             });
         }
 
-        // Navigation and section switching
-        function showSection(sectionId) {
-            const homeSection = document.getElementById('homeSection');
+        // Navigation logic
+        function switchSection(sectionId) {
+            const home = document.getElementById('homeSection');
             const moviesSec = document.getElementById('moviesSection');
             const trendingSec = document.getElementById('trendingSection');
             const featuresSec = document.getElementById('featuresSection');
             
-            homeSection.style.display = 'none';
+            home.style.display = 'none';
             moviesSec.classList.remove('active');
             trendingSec.classList.remove('active');
             featuresSec.classList.remove('active');
             
-            if (sectionId === 'home') {
-                homeSection.style.display = 'flex';
+            if(sectionId === 'home') {
+                home.style.display = 'flex';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else if (sectionId === 'movies') {
+            } else if(sectionId === 'movies') {
                 moviesSec.classList.add('active');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else if (sectionId === 'trending') {
+            } else if(sectionId === 'trending') {
                 trendingSec.classList.add('active');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else if (sectionId === 'features') {
+            } else if(sectionId === 'features') {
                 featuresSec.classList.add('active');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
@@ -644,44 +615,43 @@
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                showSection(link.getAttribute('data-section'));
+                switchSection(link.getAttribute('data-section'));
             });
         });
 
         window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 30) navbar.classList.add('scrolled');
-            else navbar.classList.remove('scrolled');
+            const nav = document.getElementById('navbar');
+            if(window.scrollY > 40) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
         });
 
-        // Initialize dynamic content
-        initMovieSwiper();
-        initTrending();
-        showSection('home');
+        initMainCarousel();
+        initTrendingUniverse();
+        switchSection('home');
 
-        // GSAP scroll animations (hero fade + parallax effect)
+        // GSAP parallax for hero
         gsap.registerPlugin(ScrollTrigger);
         gsap.to(".hero", {
-            scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 0.8 },
-            scale: 0.97,
+            scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 0.7 },
+            scale: 0.96,
             opacity: 0.5,
             ease: "none"
         });
-        
-        // Extra: typewriter effect only for hero h1 but keep existing gradient
-        const originalH1 = document.querySelector('.hero h1');
-        const staticText = "Beyond Ordinary Streaming";
-        if(originalH1) {
+
+        // typewriter effect hero heading (optional)
+        const heroHeading = document.querySelector('.hero h1');
+        const originalText = "Cinema Without Limits";
+        if(heroHeading) {
             let idx = 0;
-            originalH1.innerHTML = '';
-            function typeEffect() {
-                if(idx < staticText.length) {
-                    originalH1.innerHTML += staticText.charAt(idx);
+            heroHeading.innerHTML = '';
+            function writeHero() {
+                if(idx < originalText.length) {
+                    heroHeading.innerHTML += originalText.charAt(idx);
                     idx++;
-                    setTimeout(typeEffect, 70);
+                    setTimeout(writeHero, 55);
                 }
             }
-            setTimeout(typeEffect, 400);
+            setTimeout(writeHero, 300);
         }
     </script>
 </body>
